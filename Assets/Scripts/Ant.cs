@@ -51,7 +51,7 @@ public class Ant : MonoBehaviour
     }
 
     void HandleFood() {
-        Collider[] allFood = Physics.OverlapSphere(transform.position, viewRadius, foodLayer);
+        Collider2D[] allFood = Physics2D.OverlapCircleAll(transform.position, viewRadius, foodLayer);
         
         print(allFood.Length);
         if (targetFood == null) {
@@ -67,7 +67,7 @@ public class Ant : MonoBehaviour
         } else {
             desiredDirection = (targetFood.position - transform.position).normalized;
             
-            const float foodPickupRadius = 0.5f;
+            const float foodPickupRadius = 1.0f;
             if (Vector3.Distance(targetFood.position, transform.position) < foodPickupRadius) {
                 targetFood.position = transform.position;
                 targetFood.parent = transform;
