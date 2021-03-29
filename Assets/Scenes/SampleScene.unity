@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f917e41062ff249b701836ae0f519f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodPheromonePrefab: {fileID: 4846518678614805096, guid: 085f1b7382c0d344c8e023043483e30e, type: 3}
+  homePheromonePrefab: {fileID: 7192890220900294201, guid: 10549db7ff4c7c2438cf5c1fee8f216f, type: 3}
   maxSpeed: 2
   steerStrength: 2
   wanderStrength: 0.5

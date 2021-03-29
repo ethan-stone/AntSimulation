@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ant : MonoBehaviour
 {
+    public GameObject foodPheromonePrefab;
+    public GameObject homePheromonePrefab;
+
     public float maxSpeed = 2;
     public float steerStrength = 2;
     public float wanderStrength = 1;
@@ -16,6 +19,11 @@ public class Ant : MonoBehaviour
     Vector2 position;
     Vector2 velocity;
     Vector2 desiredDirection;
+
+    float nextPheromoneSpawnTime;
+    float secondsBetweenPheromoneSpawn = 1;
+
+    bool hasFood;
 
     Transform targetFood;
 
@@ -37,17 +45,12 @@ public class Ant : MonoBehaviour
         }
 
         position += velocity * Time.deltaTime;
+        
         HandleFood();
+        HandlePheromone();
 
         float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
-    }
-
-    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal) {
-        if (!angleIsGlobal) {
-            angleInDegrees += transform.eulerAngles.y;
-        }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
     void HandleFood() {
@@ -72,6 +75,21 @@ public class Ant : MonoBehaviour
                 targetFood.position = transform.position;
                 targetFood.parent = transform;
                 targetFood = null;
+                hasFood = true;
+            }
+        }
+    }
+
+    void HandlePheromone() {
+        if (Time.time > nextPheromoneSpawnTime) {
+            nextPheromoneSpawnTime = Time.time + secondsBetweenPheromoneSpawn;
+            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);
+            GameObject pheromone;
+
+            if (hasFood) {
+                pheromone = (GameObject) Instantiate(foodPheromonePrefab, spawnPosition, Quaternion.Euler(Vector3.forward * 0));
+            } else {
+                pheromone = (GameObject) Instantiate(homePheromonePrefab, spawnPosition, Quaternion.Euler(Vector3.forward * 0));
             }
         }
     }

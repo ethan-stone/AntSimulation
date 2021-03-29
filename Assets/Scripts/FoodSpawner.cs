@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject foodPrefab;
     public int numFood;
     public float spawnSize;
