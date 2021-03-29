@@ -103,5 +103,12 @@ MonoBehaviour:
   foodLayer:
     serializedVersion: 2
     m_Bits: 128
+  foodPheromoneLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  homePheromoneLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   viewRadius: 5
   viewAngle: 30
+  position: {x: 0, y: 0}

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8897421421654091810}
   - component: {fileID: 521106264572810474}
-  m_Layer: 0
-  m_Name: Circle
+  m_Layer: 10
+  m_Name: HomePheromone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

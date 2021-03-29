@@ -12,6 +12,8 @@ public class Ant : MonoBehaviour
     public float wanderStrength = 1;
 
     public LayerMask foodLayer;
+    public LayerMask foodPheromoneLayer;
+    public LayerMask homePheromoneLayer;
 
     public float viewRadius;
     public float viewAngle;
@@ -47,7 +49,7 @@ public class Ant : MonoBehaviour
         position += velocity * Time.deltaTime;
         
         HandleFood();
-        HandlePheromone();
+        DropPheromone();
 
         float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
         transform.SetPositionAndRotation(position, Quaternion.Euler(0, 0, angle));
@@ -80,6 +82,17 @@ public class Ant : MonoBehaviour
     }
 
     void HandlePheromone() {
+        if (hasFood) {
+            Collider2D[] allHomePheromones = Physics2D.OverlapCircleAll(transform.position, viewRadius, homePheromoneLayer);
+            if (allHomePheromones.Length > 0) {
+                // Transform
+            }
+        } else {
+
+        }
+    }
+
+    void DropPheromone() {
         if (Time.time > nextPheromoneSpawnTime) {
             nextPheromoneSpawnTime = Time.time + secondsBetweenPheromoneSpawn;
             Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);
