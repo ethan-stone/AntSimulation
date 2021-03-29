@@ -16,7 +16,7 @@ public class Ant : MonoBehaviour
     public float viewRadius;
     public float viewAngle;
 
-    Vector2 position;
+    public Vector2 position;
     Vector2 velocity;
     Vector2 desiredDirection;
 
@@ -56,7 +56,6 @@ public class Ant : MonoBehaviour
     void HandleFood() {
         Collider2D[] allFood = Physics2D.OverlapCircleAll(transform.position, viewRadius, foodLayer);
         
-        print(allFood.Length);
         if (targetFood == null) {
             if (allFood.Length > 0) {
                 Transform food = allFood[Random.Range(0, allFood.Length)].transform;
