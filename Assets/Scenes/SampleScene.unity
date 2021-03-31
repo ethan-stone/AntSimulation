@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890ef562264df5c43ae14db8cdff7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antPrefab: {fileID: 7308899764204711086, guid: 47ec17a6314ae2341a9235b2678a2443, type: 3}
+  antPrefab: {fileID: 7308899764204711087, guid: 47ec17a6314ae2341a9235b2678a2443, type: 3}
   colonyPrefab: {fileID: 4341975365773226810, guid: 9cc287f54ea83734095c3651ee08d72c, type: 3}
-  numAnts: 10
+  numAnts: 2
 --- !u!4 &14499924
 Transform:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 2549696944564861613, guid: 68233e0122808a4469272bdae08293e9, type: 3}
-  numFood: 100
+  numFood: 10
   spawnSize: 0.5
 --- !u!4 &468777334
 Transform:

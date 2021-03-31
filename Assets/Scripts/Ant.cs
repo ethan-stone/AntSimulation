@@ -84,6 +84,8 @@ public class Ant : MonoBehaviour
     void HandlePheromone() {
         if (hasFood) {
             Collider2D[] allHomePheromones = Physics2D.OverlapCircleAll(transform.position, viewRadius, homePheromoneLayer);
+            // x' = xcos(theta) - ysin(theta)
+            // y' = xsin(theta) + ycos(theta)
             if (allHomePheromones.Length > 0) {
                 // Transform
             }
